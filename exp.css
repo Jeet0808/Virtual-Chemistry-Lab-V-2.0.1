@@ -1,0 +1,227 @@
+
+       body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(255, 255, 255);
+        }
+
+        h1 {
+            text-align: center;
+            color: #000000;
+        }
+
+        .experiment {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 20px auto;
+            padding: 20px;
+            width: 80%;
+            background-color: #000000;
+        }
+
+        .experiment h2 {
+            color: #ffffff;
+        }
+
+        .calculator {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #eef;
+            border-radius: 5px;
+        }
+
+        .calculator label,
+        .calculator input {
+            display: block;
+            margin: 5px 0;
+        }
+
+        .calculator input[type="number"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        .calculator button {
+            background-color: #000000;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .calculator button:hover {
+            background-color: #333;
+        }
+
+        .result {
+            margin-top: 10px;
+            color: #000000;
+            font-weight: bold;
+        }
+
+        h2 {
+            margin-top: 30px;
+            text-align: center;
+            color: #65b2a3;
+        }
+
+        canvas {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            color: #8d3d3d;
+        }
+       
+        strong{
+            color: #eef;
+        }
+  
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        h3 {
+            text-align: center;
+            color: #0c3fb8;
+        }
+
+        #hardnessForm {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 20px auto;
+            padding: 20px;
+            width: 80%;
+            background-color: #fff;
+        }
+
+        #hardnessForm h3 {
+            color: #ffffff;
+        }
+
+        .calculator {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #eef;
+            border-radius: 5px;
+            color: #000000;
+        }
+
+        #hardnessForm label,
+        .calculator input {
+            display: block;
+            margin: 5px 0;
+        }
+
+        #hardnessForm input[type="number"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        #hardnessForm button {
+            background-color: #000000;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 10px;
+            color: hsl(0, 37%, 62%);
+            font-weight: bold;
+        }
+
+        .lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: space-around;
+            pointer-events: none;
+        }
+
+        .line {
+            position: relative;
+            width: 1px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .line::after {
+            content: '';
+            position: absolute;
+            top: -150%;
+            left: 0;
+            width: 100%;
+            height: 20%;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
+            animation: drop 7s infinite cubic-bezier(0.4, 0.26, 0, 0.97);
+        }
+
+        /* Animating 30 lines with unique delays */
+        .line:nth-child(1)::after {
+            animation-delay: 1s;
+        }
+
+        .line:nth-child(2)::after {
+            animation-delay: 1.5s;
+        }
+
+        .line:nth-child(3)::after {
+            animation-delay: 2s;
+        }
+
+        .line:nth-child(4)::after {
+            animation-delay: 2.5s;
+        }
+
+        .line:nth-child(5)::after {
+            animation-delay: 3s;
+        }
+
+        .line:nth-child(6)::after {
+            animation-delay: 3.5s;
+        }
+
+        .line:nth-child(7)::after {
+            animation-delay: 4s;
+        }
+
+        .line:nth-child(8)::after {
+            animation-delay: 4.5s;
+        }
+
+        .line:nth-child(9)::after {
+            animation-delay: 5s;
+        }
+
+        .line:nth-child(10)::after {
+            animation-delay: 5.5s;
+        }
+
+        /* Add more as needed */
+
+        @keyframes drop {
+            0% {
+                top: -150%;
+            }
+
+            100% {
+                top: 150%;
+            }
+        }
+   
+
+
+

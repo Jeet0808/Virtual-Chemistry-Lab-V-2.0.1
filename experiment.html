@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiments</title>
+
+    <link rel="stylesheet" href="exp.css">
+</head>
+
+<body>
+    <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <h1>Experiments</h1>
+
+    <!-- Experiment 1 -->
+    <div class="experiment">
+        <h2>Experiment No.1: To Determine Total Hardness of Water Sample in PPM</h2>
+        <p><strong>Objective:</strong> To determine the total hardness of a water sample in parts per million (ppm)
+            using EDTA as a titrant.</p>
+        <p><strong>Description:</strong> In this experiment, the hardness of a water sample is determined by titrating
+            it with a standard EDTA solution. The total hardness is caused by dissolved calcium and magnesium ions, and
+            the amount of EDTA used helps calculate the hardness in ppm.</p>
+
+        <h3>Calculation:</h3>
+        <p>The total hardness in ppm is calculated using the formula:</p>
+        <pre>
+            Hardness (ppm) = (Volume of EDTA used x Concentration of EDTA x 1000) / Volume of Water Sample
+        </pre>
+
+        <!-- Calculation Form -->
+        <h3>Enter the values for calculation:</h3>
+        <form class="calculator">
+            <label for="edtaVolume">Volume of EDTA used (mL):</label>
+            <input type="number" id="edtaVolume" required>
+            <br><br>
+
+            <label for="edtaConcentration">Concentration of EDTA (mol/L):</label>
+            <input type="number" id="edtaConcentration" step="any" required>
+            <br><br>
+
+            <label for="waterSampleVolume">Volume of Water Sample (mL):</label>
+            <input type="number" id="waterSampleVolume" required>
+            <br><br>
+
+            <button type="button" onclick="calculateHardness()">Calculate Hardness (ppm)</button>
+            <p id="p1"></p>
+            <p style="color: black;" id="result1"></p>
+        </form>
+
+        <!-- Graph Container -->
+        <h3>Hardness Visualization:</h3>
+        <canvas id="hardnessChart" width="400" height="200"></canvas>
+    </div>
+
+    <!-- Experiment 2 -->
+    <div class="experiment">
+        <h2>Experiment No. 2: Determination of Mixed Alkalinity in a Water Sample</h2>
+        <p><strong>Objective:</strong> To determine the mixed alkalinity (hydroxide, carbonate, and bicarbonate) in a
+            given water sample using titration with phenolphthalein and methyl orange as indicators.</p>
+
+        <h3>Calculation:</h3>
+        <p>The alkalinity is calculated based on the volume of acid used in the titration. The formula is as follows:
+        </p>
+        <pre>
+            P-Alkalinity = (Volume of Acid x Normality of Acid x 1000) / Volume of Sample
+            M-Alkalinity = (Volume of Acid x Normality of Acid x 1000) / Volume of Sample
+        </pre>
+
+        <!-- Calculation Form -->
+        <form class="calculator">
+            <label for="phenolVolume">Volume of Acid (Va) for Phenolphthalein Titration (mL):</label>
+            <input type="number" id="phenolVolume" required>
+
+            <label for="methylVolume">Volume of Acid (Va') for Methyl Orange Titration (mL):</label>
+            <input type="number" id="methylVolume" required>
+
+            <label for="acidNormality">Normality of Acid (Na):</label>
+            <input type="number" id="acidNormality" step="any" value="0.02" required>
+
+            <label for="sampleVolume">Volume of Water Sample (Vs) (mL):</label>
+            <input type="number" id="sampleVolume" required>
+
+            <button type="button" onclick="calculateAlkalinity()">Calculate Alkalinity</button>
+        </form>
+
+        <h3>Results</h3>
+        <p class="result" id="phenolAlkalinityResult">P-Alkalinity (as CaCO₃): </p>
+        <p class="result" id="methylAlkalinityResult">M-Alkalinity (as CaCO₃): </p>
+
+        <!-- Graph Container -->
+        <h3>Alkalinity Visualization:</h3>
+        <canvas id="Alkalinity" width="400" height="200"></canvas>
+    </div>
+
+    <!-- Experiment 3 -->
+    <div class="experiment">
+        <h2>Experiment No. 3: Cleveland Open-Cup Apparatus Experiment</h2>
+        <p><strong>Aim:</strong> To determine the flash point and fire point of petroleum products and other flammable
+            liquids using the Cleveland Open-Cup Apparatus.</p>
+
+        <h3>Calculation:</h3>
+        <p>The flash point and fire point are calculated based on the temperatures at which the liquid ignites and
+            maintains combustion. The formula is as follows:</p>
+        <pre>
+            Flash Point (°C) = Measured Temperature
+            Fire Point (°C) = Measured Temperature
+        </pre>
+
+        <!-- Calculation Form -->
+        <div class="calculator">
+            <form id="flashFireForm">
+                <label for="flashPoint">Enter Flash Point Temperature (°C):</label>
+                <input type="number" id="flashPoint" required>
+
+                <label for="firePoint">Enter Fire Point Temperature (°C):</label>
+                <input type="number" id="firePoint" required>
+
+                <button type="button" onclick="calculatePoints()">Calculate</button>
+            </form>
+            <p class="result" id="result2"></p>
+        </div>
+
+        <!-- Graph Container -->
+        <h3>Flash/Fire Point Visualization:</h3>
+        <canvas id="flashFireChart" width="400" height="200"></canvas>
+    </div>
+
+    <!-- Experiment 4 -->
+    <div class="experiment">
+        <h2>Experiment No. 4: Pensky-Martens Closed-Cup Flash Point Calculation</h2>
+        <p><strong>Aim:</strong> To determine the flash point of volatile substances in a closed environment.</p>
+
+        <h3>Calculation:</h3>
+        <p>The flash point is determined based on the time and temperature change during the heating process. The
+            formula is:</p>
+        <pre>
+            Flash Point (°C) = Initial Temperature + (Heating Rate x Time to Flash)
+        </pre>
+
+        <!-- Calculation Form -->
+        <form class="calculator">
+            <label for="initialTemp">Initial Temperature (°C):</label>
+            <input type="number" id="initialTemp" required>
+
+            <label for="heatingRate">Heating Rate (°C per minute):</label>
+            <input type="number" id="heatingRate" required>
+
+            <label for="timeToFlash">Time until Flash Observed (minutes):</label>
+            <input type="number" id="timeToFlash" required>
+
+            <button type="button" onclick="calculateFlashPoint()">Calculate Flash Point</button>
+        </form>
+        <p class="result" id="result3"></p>
+
+        <!-- Graph Container -->
+        <h3>Flash Point Visualization:</h3>
+        <canvas id="flashPointChart" width="400" height="200"></canvas>
+    </div>
+
+    <!-- Experiment 5 -->
+    <div class="experiment">
+        <h2>Experiment No. 5: Moisture Content in Coal Sample Calculation</h2>
+        <p><strong>Aim:</strong> To determine the moisture content in a coal sample using proximate analysis.</p>
+
+        <h3>Calculation:</h3>
+        <p>The moisture content in the coal sample is calculated using the following formula:</p>
+        <pre>
+            Moisture Content (%) = ((Weight of Crucible + Coal - Weight of Crucible after Heating) / (Weight of Crucible + Coal)) x 100
+        </pre>
+
+        <!-- Calculation Form -->
+        <form class="calculator">
+            <label for="emptyCrucibleWeight">Weight of Empty Crucible (g):</label>
+            <input type="number" id="emptyCrucibleWeight" required>
+
+            <label for="initialCoalWeight">Weight of Crucible + Coal Sample (g):</label>
+            <input type="number" id="initialCoalWeight" required>
+
+            <label for="finalWeight">Weight of Crucible + Coal After Heating (g):</label>
+            <input type="number" id="finalWeight" required>
+
+            <button type="button" onclick="calculateMoisture()">Calculate Moisture Content</button>
+        </form>
+        <p class="result" id="result4"></p>
+
+        <!-- Graph Container -->
+        <h3>Moisture Content Visualization:</h3>
+        <canvas id="moistureChart" width="400" height="200"></canvas>
+    </div>
+
+<!-- Experiment 6: Redwood Viscometer Viscosity Calculation -->
+<div class="experiment">
+    <h2>Experiment No. 6: Redwood Viscometer Viscosity Calculation</h2>
+    <p><strong>Aim:</strong> To determine the kinematic viscosity and absolute viscosity of the given lubricating oil at different temperatures using Redwood Viscometer.</p>
+
+    <h3>Calculation:</h3>
+    <p>The kinematic viscosity is calculated using the following formula:</p>
+    <pre>
+        Kinematic Viscosity = Time Taken (Redwood Seconds) x Oil Density
+    </pre>
+
+    <!-- Calculation Form -->
+    <form class="calculator">
+        <label for="redwoodSeconds">Time Taken (Redwood Seconds):</label>
+        <input type="number" id="redwoodSeconds" required>
+
+        <label for="oilDensity">Density of Oil (g/cm³):</label>
+        <input type="number" step="0.001" id="oilDensity" required>
+
+        <button type="button" onclick="calculateViscosity()">Calculate Viscosities</button>
+    </form>
+    <p class="result" id="result5"></p>
+
+    <!-- Graph Container -->
+    <h3>Viscosity Visualization:</h3>
+    <canvas id="viscosityChart" width="400" height="200"></canvas>
+</div>
+
+<!-- Experiment 7: Aniline Point of Lubricating Oil -->
+<div class="experiment">
+    <h2>Experiment No. 7: Aniline Point of Lubricating Oil</h2>
+    <p><strong>Aim:</strong> To determine the aniline point of a given sample of lubricating oil, which helps evaluate the oil’s aromatic content and predict its solubility and compatibility with other materials.</p>
+
+    <h3>Calculation:</h3>
+    <p><strong>Formula:</strong> Aniline Point = Temperature (°C) at which oil and aniline mix completely.</p>
+
+    <form class="calculator">
+        <label for="oilVolume">Volume of Lubricating Oil (ml):</label>
+        <input type="number" id="oilVolume" required value="10">
+
+        <label for="anilineVolume">Volume of Aniline (ml):</label>
+        <input type="number" id="anilineVolume" required value="10">
+
+        <label for="miscibilityTemp">Temperature (°C) at Miscibility:</label>
+        <input type="number" id="miscibilityTemp" required>
+
+        <button type="button" onclick="calculateAnilinePoint()">Calculate Aniline Point</button>
+    </form>
+    <p class="result" id="result6"></p>
+
+    <!-- Graph Container -->
+    <h3>Aniline Point Visualization:</h3>
+    <canvas id="anilinePointChart" width="400" height="200"></canvas>
+</div>
+
+<!-- Experiment 8: Cone Penetrometer -->
+<div class="experiment">
+    <h2>Experiment No. 8: Cone Penetrometer</h2>
+    <p><strong>Aim:</strong> To determine the penetration number of a specific grease sample using a cone penetrometer.</p>
+
+    <h3>Observation:</h3>
+    <p><strong>Formula:</strong> Average Penetration = (Penetration Value 1 + Penetration Value 2 + Penetration Value 3) / 3</p>
+
+    <form class="calculator">
+        <label for="pen1">Enter Penetration Value 1 (mm):</label>
+        <input type="number" id="pen1" required>
+
+        <label for="pen2">Enter Penetration Value 2 (mm):</label>
+        <input type="number" id="pen2" required>
+
+        <label for="pen3">Enter Penetration Value 3 (mm):</label>
+        <input type="number" id="pen3" required>
+
+        <button type="button" onclick="calculateAverage()">Submit</button>
+    </form>
+
+    <p class="result" id="result8"></p>
+
+    <!-- Graph Container -->
+    <h3>Penetration Value Visualization:</h3>
+    <canvas id="penetrationChart" width="400" height="200"></canvas>
+</div>
+<hr>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="exp.js"></script>
+<script src="basicexp.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peroidic Table</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+         .lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: space-around;
+            pointer-events: none;
+        }
+
+        .line {
+            position: relative;
+            width: 1px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .line::after {
+            content: '';
+            position: absolute;
+            top: -150%;
+            left: 0;
+            width: 100%;
+            height: 150%;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
+            animation: drop 7s infinite cubic-bezier(0.4, 0.26, 0, 0.97);
+        }
+
+        /* Animating 30 lines with unique delays */
+        .line:nth-child(1)::after {
+            animation-delay: 1s;
+        }
+
+        .line:nth-child(2)::after {
+            animation-delay: 1.5s;
+        }
+
+        .line:nth-child(3)::after {
+            animation-delay: 2s;
+        }
+
+        .line:nth-child(4)::after {
+            animation-delay: 2.5s;
+        }
+
+        .line:nth-child(5)::after {
+            animation-delay: 3s;
+        }
+
+        .line:nth-child(6)::after {
+            animation-delay: 3.5s;
+        }
+
+        .line:nth-child(7)::after {
+            animation-delay: 4s;
+        }
+
+        .line:nth-child(8)::after {
+            animation-delay: 4.5s;
+        }
+
+        .line:nth-child(9)::after {
+            animation-delay: 5s;
+        }
+
+        .line:nth-child(10)::after {
+            animation-delay: 5.5s;
+        }
+
+        /* Add more as needed */
+
+        @keyframes drop {
+            0% {
+                top: -150%;
+            }
+
+            100% {
+                top: 150%;
+            }
+        }
+
+       
+    </style>
+</head>
+
+<body>
+
+    
+
+
+    <div class="container">
+        <div class="heading">
+            <h2>Periodic Table</h2>
+            <p>"The only limit to our realization of tomorrow is our doubts of today." – Franklin D. Roosevelt</p>
+            <p>Basic Simulation</p>
+
+        </div>
+        <div class="gridContainer">
+        </div>
+        <div class="fot">
+
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+    <script type="module" src="sample.js"></script>
+    <script>
+        // Array of dark colors
+        const darkColors = [
+    "#1A1A1D", 
+  "  #000B58",
+"   #003161",
+
+    "#1A1A1D", 
+    "#3B1C32", 
+    
+   
+    
+    "#304463"
+];
+
+
+        let bodyColorIndex = 0;
+        let containerColorIndex = 1; // Start with a different color for the container
+
+        function changeBackgroundColors() {
+            // Update body background color
+            document.body.style.backgroundColor = darkColors[bodyColorIndex];
+            bodyColorIndex = (bodyColorIndex + 1) % darkColors.length;
+
+            // Update container background color with a different color
+            document.querySelector('body').style.backgroundColor = darkColors[containerColorIndex];
+            containerColorIndex = (containerColorIndex + 1) % darkColors.length;
+        }
+
+        // Change colors every second
+        setInterval(changeBackgroundColors, 1000);
+    </script>
+
+
+</body>
+
+</html>

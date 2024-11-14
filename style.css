@@ -1,0 +1,278 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    transition: background-color 1s ease;
+    background: rgb(8, 11, 94); /* Initial color */
+}
+
+/* Container styling */
+.container {
+    height: 100vh;
+    width: 100vw;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff; /* Default text color */
+    padding: 20px;
+   
+}
+
+
+
+/* Grid container for elements */
+.gridContainer {
+    height: 60%;
+    width: 75%;
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(18, 1fr);
+    place-items: center;
+    gap: 3px;
+}
+
+/* Element styling inside grid */
+.element {
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid rgb(34, 66, 162);
+    border-radius: 3px;
+    position: relative;
+    color: rgba(242, 179, 248, 0.882);
+    cursor: pointer;
+    transition: all 0.5s ease;
+    background-color: rgba(0, 0, 0, 0.751);
+}
+
+.element:hover {
+    transform: scale(1.2);
+    color: rgb(182, 168, 168);
+}
+
+.weight {
+    position: absolute;
+    font-size: 8px;
+    right: 0;
+    margin-right: 3px;
+    top: 0;
+}
+
+.name {
+    position: absolute;
+    font-size: 10px;
+    bottom: 0;
+    margin-bottom: 3px;
+}
+
+.number {
+    position: absolute;
+    font-size: 8px;
+    margin-left: 3px;
+    left: 0;
+    margin-right: 3px;
+    top: 0;
+}
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    transition: all 2s ease;
+    background-color: black;
+}
+
+/* Container styling */
+.container {
+    height: 100vh;
+    width: 100vw;
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff; /* Default text color */
+    padding: 20px;
+}
+
+/* Add section styling */
+.add {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    transition: all 3s ease;
+}
+
+.wrapper {
+    height: 80vh;
+    width: 60vw;
+    position: relative;
+    background-color: rgb(18, 5, 57);
+    color: rgb(208, 203, 203);
+    border-radius: 10px;
+    border: 2px solid rgb(28, 108, 179);
+    transition: all 3s ease;
+}
+
+.headingg {
+    text-align: center;
+}
+
+.head {
+    height: 100px;
+    width: 100%;
+    position: relative;
+}
+
+/* Button styles */
+button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: none;
+    height: 40px;
+    width: 50px;
+    margin: 10px;
+    color: white;
+    font-size: 23px;
+    background: transparent;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+/* Layout for properties */
+.prop {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Layout for detail section */
+.detail {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-right: 30px;
+}
+
+.first {
+    grid-column: 2 / span 16;
+    background-color: red;
+}
+
+.second {
+    grid-column: 3 / span 10;
+    background-color: red;
+}
+
+/* Footer styles */
+.fot {
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    gap: 5px;
+}
+
+.trans {
+    transition: all 2s ease;
+}
+
+/* Header styles */
+.heading {
+    position: relative;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: rgb(255, 255, 255);
+}
+
+/* Media Queries for Responsiveness */
+
+/* Mobile Styles */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    /* Adjusting layout for properties section */
+    .prop {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    /* Reducing font size for better fit */
+    .detail {
+        font-size: 16px;
+        margin-left: 10px;
+    }
+
+    /* Resize images to fit mobile screens */
+    .img {
+        margin-right: 10px;
+    }
+
+    .img img {
+        width: 100px; /* Adjust image size */
+        height: auto;
+    }
+
+    /* Adjusting grid columns for mobile */
+    .fot {
+        margin-left: 600px;
+        grid-template-columns: repeat(14, 1fr); /* Reduce columns for smaller screens */
+        gap: 3px;
+    }
+
+    /* Center-aligning heading elements and reducing padding */
+    .heading {
+        flex-direction: column;
+        align-items: center;
+        padding: 5px 10px;
+    }
+
+    .wrapper {
+        width: 90vw;
+        height: auto;
+    }
+
+    .add {
+        height: 100%;
+    }
+
+    /* Smaller button for mobile */
+    button {
+        font-size: 18px;
+        height: 35px;
+        width: 45px;
+    }
+}

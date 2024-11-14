@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Some basic experiments -->
+<h2>"Some basic experiments"</h2>
+
+<!-- Experiment 1: Density Calculation -->
+<div class="experiment">
+    <h2>Experiment 1: Density Calculation</h2>
+    <p><strong>Objective:</strong> Calculate the density of an object using mass and volume.</p>
+    <div class="calculator">
+        <h3>Calculate Density</h3>
+        <label for="mass">Enter Mass (g):</label>
+        <input type="number" id="mass" step="0.1" required>
+        <label for="volume">Enter Volume (cm³):</label>
+        <input type="number" id="volume" step="0.1" required>
+        <button onclick="calculateDensity()">Calculate Density</button>
+        <p class="result" id="densityResult"></p>
+    </div>
+</div>
+
+<!-- Experiment 2: Measuring the pH of Common Household Solutions -->
+<div class="experiment">
+    <h2>Experiment 2: Measuring the pH of Common Household Solutions</h2>
+    <div class="calculator">
+        <h3>Determine pH Level</h3>
+        <label for="solutionPH">Enter Measured pH:</label>
+        <input type="number" id="solutionPH" step="0.1" required>
+        <button onclick="determinePH()">Determine pH Level</button>
+        <p class="result" id="pHResult"></p>
+    </div>
+</div>
+
+<!-- Experiment 3: Determining the Boiling Point of Water -->
+<div class="experiment">
+    <h2>Experiment 3: Determining the Boiling Point of Water</h2>
+    <div class="calculator">
+        <h3>Check Boiling Point</h3>
+        <label for="temperature">Enter Measured Temperature (°C):</label>
+        <input type="number" id="temperature" step="0.1" required>
+        <button onclick="checkBoilingPoint()">Check Boiling Point</button>
+        <p class="result" id="boilingPointResult"></p>
+    </div>
+</div>
+
+<!-- Experiment 4: Neutralization Reaction - Acid and Base -->
+<div class="experiment">
+    <h2>Experiment 4: Neutralization Reaction - Acid and Base</h2>
+    <p><strong>Objective:</strong> Determine the amount of base needed to neutralize a given amount of acid.</p>
+    <div class="calculator">
+        <h3>Calculate Required Base</h3>
+        <label for="acidAmount">Enter Acid Amount (mL):</label>
+        <input type="number" id="acidAmount" step="0.1" required>
+        <label for="acidConcentration">Enter Acid Concentration (M):</label>
+        <input type="number" id="acidConcentration" step="0.1" required>
+        <label for="baseConcentration">Enter Base Concentration (M):</label>
+        <input type="number" id="baseConcentration" step="0.1" required>
+        <button onclick="calculateBaseVolume()">Calculate Base Volume</button>
+        <p class="result" id="baseVolumeResult"></p>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph Builder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(255, 255, 255);
+        }
+
+        h1 {
+            text-align: center;
+            color: #000000;
+        }
+
+        .graph-builder {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 20px auto;
+            padding: 20px;
+            width: 80%;
+            background-color: #f0f0f0;
+        }
+
+        .graph-builder h2 {
+            text-align: center;
+            color: #000;
+        }
+
+        .graph-builder input {
+            padding: 8px;
+            width: 80%;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .graph-builder button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .graph-builder button:hover {
+            background-color: #0056b3;
+        }
+
+        canvas {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Graph Builder</h1>
+    <div class="graph-builder">
+        <h2>Enter X and Y values</h2>
+        <label for="xValues">X Values (comma-separated, can include negative values):</label>
+        <input type="text" id="xValues" placeholder="Example: -5, -3, 0, 2, 5" />
+        <br>
+        <label for="yValues">Y Values (comma-separated, can include negative values):</label>
+        <input type="text" id="yValues" placeholder="Example: -2, -1, 0, 2, 4" />
+        <br>
+        <button onclick="buildGraph()">Build Graph</button>
+    </div>
+
+    <h3 style="text-align: center;">Your Graph:</h3>
+    <canvas id="graphCanvas" width="600" height="600"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        let chartInstance = null;  // To hold the chart instance globally
+
+        function buildGraph() {
+            // Get the x and y values from the inputs
+            var xValues = document.getElementById('xValues').value.split(',').map(function(val) {
+                return parseFloat(val.trim());
+            });
+
+            var yValues = document.getElementById('yValues').value.split(',').map(function(val) {
+                return parseFloat(val.trim());
+            });
+
+            // Validate the input
+            if (xValues.length !== yValues.length) {
+                alert("Please ensure that the number of X values matches the number of Y values.");
+                return;
+            }
+
+            for (let i = 0; i < xValues.length; i++) {
+                if (isNaN(xValues[i]) || isNaN(yValues[i])) {
+                    alert("Please enter valid numerical values.");
+                    return;
+                }
+            }
+
+            // Get the context of the canvas
+            var ctx = document.getElementById('graphCanvas').getContext('2d');
+
+            // Destroy any existing chart instance before creating a new one
+            if (chartInstance) {
+                chartInstance.destroy();
+            }
+
+            // Create a new chart with the input values
+            chartInstance = new Chart(ctx, {
+                type: 'line', // You can change this to other types like 'scatter', 'bar', etc.
+                data: {
+                    labels: xValues, // X-axis data
+                    datasets: [{
+                        label: 'Y Values',
+                        data: yValues, // Y-axis data
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        fill: false,
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'X Values'
+                            },
+                            ticks: {
+                                beginAtZero: false,
+                                min: Math.min(...xValues) - 1, // Set the minimum value dynamically
+                                max: Math.max(...xValues) + 1, // Set the maximum value dynamically
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Y Values'
+                            },
+                            ticks: {
+                                beginAtZero: false,
+                                min: Math.min(...yValues) - 1, // Set the minimum value dynamically
+                                max: Math.max(...yValues) + 1, // Set the maximum value dynamically
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
